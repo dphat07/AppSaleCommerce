@@ -1,19 +1,19 @@
 import { TouchableOpacity,Text, StyleSheet } from "react-native"
 import React from "react"
-interface ButtonProps {
+interface GoogleLoginProps {
     title: string;
     onPress?: () => void;
     style?: object;
 }
 
-const Button: React.FC<ButtonProps> = ({ title, onPress, style }) => {
+const GoogleLogin: React.FC<GoogleLoginProps> = ({ title, onPress, style }) => {
     return <TouchableOpacity onPress= {onPress}style = {[styles.container, style]} activeOpacity={0.6} >
         <Text style= {styles.title}>{title}</Text>
     </TouchableOpacity>
    
 }
 
-export default React.memo(Button); 
+export default React.memo(GoogleLogin); 
 
 const styles = StyleSheet.create({
     container: {
