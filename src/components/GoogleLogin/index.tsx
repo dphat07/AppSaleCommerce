@@ -1,32 +1,39 @@
-import { TouchableOpacity,Text, StyleSheet } from "react-native"
-import React from "react"
+import { TouchableOpacity, Text, StyleSheet, Image } from "react-native";
+import React from "react";
+import localImages from "../../assets";
+import { colors } from "../../../utils/colors";
 interface GoogleLoginProps {
-    title: string;
-    onPress?: () => void;
-    style?: object;
+  onPress?: () => void;
+  style?: object;
 }
 
-const GoogleLogin: React.FC<GoogleLoginProps> = ({ title, onPress, style }) => {
-    return <TouchableOpacity onPress= {onPress}style = {[styles.container, style]} activeOpacity={0.6} >
-        <Text style= {styles.title}>{title}</Text>
+const GoogleLogin: React.FC<GoogleLoginProps> = ({onPress, style }) => {
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.container, style]}
+      activeOpacity={0.6}
+    >
+      <Image style={styles.image} source={localImages().ic_google}></Image>
     </TouchableOpacity>
-   
-}
+  );
+};
 
-export default React.memo(GoogleLogin); 
+export default React.memo(GoogleLogin);
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#4F63AC',
-        paddingVertical: 20,
-        paddingHorizontal:8,
-        borderRadius:8, 
-        width: '100%'
-    },
-    title: {
-        color: "#FFFF",
-        textAlign: 'center',
-        fontSize:16,
-        fontWeight: 'bold',
-    }
-})
+  container: {
+    backgroundColor: colors.darkGrey,
+    borderRadius: 14,
+    width: "45%",
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 16,
+    marginBottom:50
+  },
+  image: {
+    width: 30,
+    height: 30,
+  },
+});
